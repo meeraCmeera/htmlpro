@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    .pro {
+      background: #f5f5f5;
+    }
+
+    /* TOP INFO BAR */
+    .topbar {
+      background: #8e0d4f;
+      color: #fff;
+      font-size: 14px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      /* margin-right: 50px; */
+    
+
+    }
+
+    .topbar span {
+      /* opacity: 0.95; */
+    }
+
+    /* HEADER */
+    .header {
+      background: #8e0d4f;
+      padding: 18px 30px;
+      display: flex;
+      align-items: center;
+      /* justify-content: space-between; */
+      color: #fff;
+      /* align-items: last baseline; */
+      justify-content: center
+      
+      
+    }
+
+    /* LOGO */
+    .logo img {
+      /* height: 50px; */
+      
+    }
+
+    /* SEARCH BAR */
+    .search-box {
+      flex: 1;
+      max-width: 520px;
+      margin: 0 40px;
+      display: flex;
+      background: #fff;
+      border-radius: 40px;
+      overflow: hidden;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px 18px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search-btn {
+      background: #003c3c;
+      color: #fff;
+      border: none;
+      padding: 0 22px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    /* RIGHT ICONS */
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .account {
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .icon-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .menu, .heart, .cart {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+
+
+
+
+
+
+    
+/* top pink line */
+.menu-bar {
+  border-top: 8px solid #8b0d4d;
+  background: #e6e6e6;
+}
+
+/* list style */
+.menu-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 12px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+/* menu items */
+.menu-bar li {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* more arrow color */
+.menu-bar .more {
+  color: #8b0d4d;
+}
+
+/* ===== Tablet view ===== */
+@media (max-width: 992px) {
+  .menu-bar ul {
+    gap: 30px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Mobile view ===== */
+@media (max-width: 600px) {
+
+  /* horizontal scroll menu */
+  .menu-bar ul {
+    justify-content: flex-start;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 15px;
+  }
+
+  /* scroll bar hide */
+  .menu-bar ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-bar li {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .cart {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: #000;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 5px;
+      border-radius: 50%;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .search-box {
+        margin: 0;
+        width: 100%;
+      }
+
+      .icons {
+        gap: 15px;
+      }
+    
+    }
+    .h5{
+        color: blue;
+    }
+
+
+.cd {
+  background: #f3f3f3;
+  padding: 30px;
+}
+
+/* CARD CONTAINER */
+.cards {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* SINGLE CARD */
+.card {
+  position: relative;
+  width: 360px;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* TEXT */
+.title {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+/* BUTTON */
+.btn {
+  background: #8b0d3a;
+  border: none;
+  padding: 12px 20px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.btn:hover {
+  background: #a31246;
+}
+
+/* DEAL SECTION */
+.deal-bar {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deal-title {
+  font-size: 28px;
+  color: blue;
+}
+
+.timer {
+  font-weight: bold;
+}
+
+.view-all {
+  color: blue;
+  text-decoration: none;
+}
+
+
+
+.c{
+  background:#f5f5f5;
+  padding:150px;
+}
+
+/* HEADER */
+.deal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.deal-title{
+  font-size:28px;
+  color:blue;
+}
+
+.timer{
+  font-weight:bold;
+}
+
+.view-all{
+  color:blue;
+  text-decoration:none;
+}
+
+/* PRODUCT ROW */
+.products{
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  margin-left: 20px;
+
+}
+
+.product{
+  background:#fff;
+  min-width:100px;
+  padding:15px;
+  border-radius:8px;
+  text-align:center;
+  position:relative;
+}
+
+/* DISCOUNT BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:gold;
+  padding:5px ;
+  font-size:13px;
+  border-radius:4px;
+}
+
+/* IMAGE */
+/* .product img{
+  width:100px;
+  height:300px;
+  object-fit:contain;
+} */
+
+.product img{
+  width: 200px;
+  height: 400px;
+}
+
+/* STARS */
+.stars{
+  color:orange;
+  margin:8px 0;
+  font-size:18px;
+}
+
+/* TITLE */
+.product-title{
+  color:blue;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+/* PRICE */
+.price{
+  margin:8px 0;
+}
+
+.new{
+  color:blue;
+  font-weight:bold;
+  margin-right:6px;
+}
+
+.old{
+  text-decoration:line-through;
+  color:#444;
+}
+
+/* ICON BUTTONS */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:10px;
+}
+
+.actions button{
+  background:#8b0d3a;
+  border:none;
+  color:#fff;
+  padding:8px 10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.actions button:hover{
+  background:#a31246;
+}
+
+
+
+
+
+
+.footer {
+  background: #8b0d4d;
+  color: white;
+  padding-top: 40px;
+}
+
+/* top section */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  padding: 0 60px 40px;
+}
+
+.footer-col h3 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.footer-col ul li:hover {
+  text-decoration: underline;
+}
+
+/* contact */
+.contact p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.contact i {
+  margin-right: 8px;
+}
+
+/* subscribe */
+.subscribe-box {
+  display: flex;
+  margin: 15px 0;
+}
+
+.subscribe-box input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  flex: 1;
+  border-radius: 4px 0 0 4px;
+}
+
+.subscribe-box button {
+  background: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+.social-icons i {
+  margin-right: 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  font-size: 14px;
+}
+
+.payments img {
+  height: 25px;
+  margin: 0 5px;
+}
+
+
+
+
+/* ===== Tablet ===== */
+@media (max-width: 992px) {
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 30px 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .payments {
+    margin: 10px 0;
+  }
+}
+
+
+/* ===== Mobile ===== */
+@media (max-width: 576px) {
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    padding: 0 20px 25px;
+  }
+
+  .footer-col h3 {
+    font-size: 18px;
+  }
+
+  .footer-col ul li,
+  .contact p {
+    font-size: 13px;
+  }
+
+  .subscribe-box input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .subscribe-box button {
+    padding: 8px 12px;
+  }
+
+  .social-icons i {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .footer-bottom {
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  .payments img {
+    height: 20px;
+    margin: 3px;
+  }
+}
+
+
+
+/* responsive */
+/* 
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+} */
+
+
+
+/* TABLET VIEW */
+/* 
+@media (max-width: 992px) {
+
+  .cards,
+  .products {
+    justify-content: center;
+  }
+
+  .card,
+  .product {
+    width: 45%;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+} */
+
+/* MOBILE VIEW */
+@media (max-width: 576px) {
+
+  /* category images row */
+  div[style*="display: flex"][style*="padding-left"] {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0 !important;
+  }
+
+  div[style*="display: flex"][style*="padding-left"] div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  div[style*="display: flex"][style*="padding-left"] img {
+    margin-left: 0 !important;
+  }
+
+
+
+  @media (max-width: 992px) {
+  .product {
+    width: 45%;
+  }
+
+  .deal-title {
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 576px) {
+
+  .deal-header {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+
+  .products {
+    gap: 15px;
+  }
+
+  .product {
+    width: 90%;
+  }
+
+  .product img {
+    height: 160px;
+  }
+
+  .actions button {
+    font-size: 14px;
+    padding: 5px;
+  }
+}
+
+
+/* Mobile – 1 product per row */
+@media (max-width: 768px) {
+
+  .products {
+    flex-direction: column;   /* vertical layout */
+    overflow-x: hidden;       /* horizontal scroll remove */
+    gap: 20px;
+    margin-left: 0;
+  }
+
+  .product {
+    width: 100%;              /* full width */
+    min-width: 100%;          /* ensure single column */
+  }
+
+  .product img {
+    width: 140px;
+    height: 200px;
+  }
+}
+
+
+
+
+
+
+/* mobile */
+
+@media (max-width: 768px) {
+  .c {
+    padding: 10px 15px;
+  }
+
+  .deal-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .products {
+    gap: 15px;
+    margin-left: 0;
+  }
+
+  .product {
+    min-width: 180px;
+  }
+
+  .product img {
+    width: 150px;
+    height: 180px;
+  }
+
+  .product-title {
+    font-size: 13px;
+  }
+}
+
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .deal-title {
+    font-size: 20px;
+  }
+
+  .timer {
+    font-size: 14px;
+  }
+
+  .view-all {
+    font-size: 14px;
+  }
+
+  .product {
+    min-width: 160px;
+    padding: 10px;
+  }
+
+  .product img {
+    width: 100px;
+    height: 150px;
+  }
+
+  .actions button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+
+}
+
+
+</style>
+<body>
+   
+    
+
+    
+<body>
+<div class="pro">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>Email : info@toybulk.com</span>
+    <span>Support : +91-9625885195</span>
+    <span>Download App</span>
+    <span>Select Language</span>
+    <span style="font-size: 10px;">Powered by Google Translate</span>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="./images/m1.png" alt="Toybulk Logo" style="height: 65px;width: 65px;" />
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" placeholder="Search..." />
+      <button class="search-btn">Search</button>
+    </div>
+
+    <!-- ICONS -->
+    <div class="icons">
+
+      <div style="display:flex; align-items:center; gap:8px;">
+        <div class="icon-circle">👤</div>
+        <div class="account">
+          Hello!<br /><strong>My Account</strong>
+        </div>
+      </div>
+
+
+
+      <div class="heart">❤</div>
+      <div class="menu">☰</div>
+
+
+      <div class="cart">
+        🛍
+        <div class="cart-count">0</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="menu-bar">
+  <ul>
+    <li>3 Feet Teddy Bears</li>
+    <li>4 Feet Teddy Bears</li>
+    <li>5 Feet Teddy Bears</li>
+    <li>6 Feet Teddy Bears</li>
+    <li>7 Feet Teddy Bears</li>
+    <li class="more">More ▾</li>
+  </ul>
+</div>
+
+<img src="./images/m2.png" height="500px" width="100%">
+ 
+
+
+    <center><h2 style="font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;color:darkred;padding-top: 20px;">Shop By Catogories</h2></center><br>
+  <!-- <div class="circle" style="display: flex;">
+    <div class="round" > -->
+        <div style="display: flex;padding-left: 10px;padding-top: 40PX;">
+            <div>
+         <a href="Menu.html"><img src="./images/m3.jpg" alt=""  height="130px" width="130px" class="rounded-circle" style="margin-left: 330px; border-radius: 100px;"></a>
+                <h5 style="margin-left: 355px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  font-size: 15px ">3Feet Deddy <br>Bears</h5>
+            </div>
+
+               <div>   <a href="Cakes.html"><img src="./images/m4.jpg" alt=""  height="130px" width="130px" class="rounded-circle" style="margin-left: 50px;border-radius: 100px;"></a>
+                <h5 style="margin-left: 80px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 15px">4Feet Deddy<br> Bears</h5>
+               </div>
+
+                 <div>   <a href="Pizza.html"><img src="./images/m5.jpg" alt=""  height="130px" width="130px" class="rounded-circle" style="margin-left: 50px; border: 100px;border-radius: 100px;"></a>
+                <h5 style="margin-left: 80px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 15px">5feet Deddy <br>Bears</h5>
+               </div>
+
+                <div>   <a href="Juice.html"><img src="./images/m6.jpg" alt=""  height="130px" width="130px" class="rounded-circle" style="margin-left: 50px;border-radius: 100px;"></a>
+                <h5 style="margin-left: 80px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 15px">6Feer Deddy <br>Bears</h5>
+               </div>
+
+                <div>   <a href="Evening Snacks.html"><img src="./images/m8.jpg" alt=""  height="130px" width="130px" class="rounded-circle" style="margin-left: 50px;border-radius: 100px;"></a>
+                <h5 style="margin-left: 90px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 15px">more</h5>
+                </div>
+            
+            </div>
+            <br>
+            <br>
+            <br>
+
+
+
+
+<!-- 
+CARDS -->
+<div class="cards">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <img src="./images/m9.jpg" alt="">
+    <div class="overlay">
+      <div>
+        <div class="title">Stuffed Animal</div>
+        <div class="subtitle">Festival Season is Here</div>
+      </div>
+      <button class="btn">SHOP NOW</button>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <img src="./images/m10.jpg" alt="">
+    <div class="overlay">
+      <div>
+        <div class="title">Upto 77% Flat</div>
+        <div class="subtitle">No EMI Exchange Offer</div>
+      </div>
+      <button class="btn">SHOP NOW</button>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <img src="./images/m11.avif" alt="">
+    <div class="overlay">
+      <div>
+        <div class="title">Upto 55% Flat</div>
+        <div class="subtitle">No EMI Exchange Offer</div>
+      </div>
+      <button class="btn">SHOP NOW</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m12.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m13.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m14.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m15.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m16.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m17.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m18.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m19.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m20.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m21.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m22.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m23.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m24.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m25.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m26.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m27.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m28.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m29.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m30.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m31.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m32.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m11.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m12.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m13.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m14.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m15.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m15.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m16.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m17.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m18.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="c">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m19.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m20.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m21.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m22.avif">
+    <div class="stars">★★★★★</div>
+
+    
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m23.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="c" style="">
+<!-- HEADER -->
+<div class="deal-header">
+  <div class="deal-title">Deal Of day</div>
+  <div class="timer">00:00:00</div>
+  <a href="#" class="view-all">View All</a>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m24.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Brown Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m24.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+  
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m25.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Cream Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m26.avif">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product">
+    <div class="badge">50% off</div>
+    <img src="./images/m27.jpg">
+    <div class="stars">★★★★★</div>
+    <div class="product-title">1 Feet Teddy Bear Cute & Adorable Pink Teddy Bear</div>
+    <div class="price">
+      <span class="new">₹249</span>
+      <span class="old">₹499</span>
+    </div>
+    <div class="actions">
+      <button>❤</button>
+      <button>⧉</button>
+      <button>👁</button>
+      <button>🛒</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+<div >
+<footer class="footer">
+
+  <div class="footer-top">
+
+    <!-- Policy -->
+    <div class="footer-col">
+      <h3>Policy</h3>
+      <ul>
+        <li>Privacy Policy</li>
+        <li>Term & Conditions</li>
+        <li>Logistics</li>
+        <li>Return & Cancellation</li>
+        <li>Payments Policy</li>
+        <li>Shipping Policy</li>
+      </ul>
+    </div>
+
+    <!-- About -->
+    <div class="footer-col">
+      <h3>About</h3>
+      <ul>
+        <li>About Us</li>
+        <li>Vision</li>
+        <li>Mission</li>
+        <li>FAQ's</li>
+        <li>Career</li>
+        <li>Customers Love Us</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+
+    <!-- Account -->
+    <div class="footer-col">
+      <h3>Account</h3>
+      <ul>
+        <li>My Account</li>
+        <li>Compare</li>
+        <li>Cart</li>
+        <li>Track Order</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-col contact">
+      <h3>Contact Us</h3>
+      <p><i class="fa fa-location-dot"></i> NE-105B, Vishnu Garden New Delhi, 110018 India.</p>
+      <p><i class="fa fa-phone"></i> +91-9625885195</p>
+      <p><i class="fa fa-envelope"></i> Info@Toybulk.com</p>
+    </div>
+
+    <!-- Subscribe -->
+    <div class="footer-col subscribe">
+      <h3>Subscribe Now</h3>
+      <p>Subscribe to receive our Newsletter.</p>
+
+      <div class="subscribe-box">
+        <input type="email" placeholder="Email Address">
+        <button><i class="fa fa-paper-plane"></i></button>
+      </div>
+
+      <div class="social-icons">
+        <i class="fa-brands fa-android"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>All Rights Reserved. Copyright © 2026 toybulk.com</p>
+
+    <div class="payments">
+      <img src="https://i.imgur.com/8Km9tLL.png">
+      <img src="https://i.imgur.com/5u7sZ9F.png">
+      <img src="https://i.imgur.com/3V9QZ6F.png">
+      <img src="https://i.imgur.com/2ISgYja.png">
+    </div>
+
+    <p>Powered By toybulk.com</p>
+  </div>
+
+</footer>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
